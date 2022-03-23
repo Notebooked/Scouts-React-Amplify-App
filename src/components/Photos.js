@@ -1,13 +1,15 @@
 import React from 'react';
-import {BrowserRouter as Router, Routes, Route} from "react-router-dom";
-import { withAuthenticator, Authenticator } from '@aws-amplify/ui-react'
-import '@aws-amplify/ui-react/styles.css';
+
+import Amplify from 'aws-amplify';
+
+import Authenticator from './Authenticator'
+import {withAuthenticator} from '@aws-amplify/ui-react'
 
 function Photos() {
   return (
     <>
-      <h1>Photos</h1>
       <Authenticator />
+      <h1>Photos</h1>
     </>
   );
 }
