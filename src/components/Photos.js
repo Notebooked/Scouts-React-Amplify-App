@@ -9,15 +9,19 @@ Amplify.configure(awsExports);
 
 function Photos() {
   return (
-    <div className="photo-section">
-    <h1>Photos</h1>
-    <Authenticator hideSignUp={true}>
-      {({ signOut, user }) => (
-        <div class="photos">
-          <button onClick={signOut}>Sign out</button>
-        </div>
-      )}
-    </Authenticator>
+    <div className="container-fluid photo-section color-scheme-alt">
+      <h3 className="section-heading">Photos</h3>
+      <br />
+      <Authenticator hideSignUp={true}>
+        {({ signOut, user }) => (
+          <>
+            <button onClick={signOut}>Sign out</button>
+            <div className="photos">
+
+            </div>
+          </>
+        )}
+      </Authenticator>
     </div>
   );
 }

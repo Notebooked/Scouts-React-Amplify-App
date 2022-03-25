@@ -52,10 +52,12 @@ p {
   color: rgba(255,255,255,0.8);
 }
 
-/* Title */
-#title {
+.color-scheme-alt {
   background-color: #D6CEBD;
+  color: #243E2C;
 }
+
+/* Title */
 
 .btn {
   background-color: #243E2C;
@@ -85,10 +87,6 @@ p {
 }
 
 /* Testimonials Section */
-#testimonials {
-  background-color: #D6CEBD;
-  color: #243E2C;
-}
 
 .testimonial-image {
   width: 10%;
@@ -124,6 +122,18 @@ p {
   .nav-link {
     text-align: center;
   }
+}
+
+.social-link {
+  margin: 10px 20px;
+}
+
+.social-icon {
+  color: #243E2C;
+}
+
+.social-icon:hover {
+  color: #D6CEBD;
 }
 
 /* AWS Authenticator */
