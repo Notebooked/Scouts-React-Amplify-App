@@ -2,12 +2,35 @@ import React from 'react';
 
 import { Amplify } from 'aws-amplify';
 import { Authenticator,useTheme,Heading, Text } from '@aws-amplify/ui-react';
+import { useState } from 'react';
 import '@aws-amplify/ui-react/styles.css';
 
 import awsExports from '../aws-exports';
+import { Storage } from 'aws-amplify';
 Amplify.configure(awsExports);
 
 function Photos() {
+  let state = { fileUrl: '', file: '', filename: '' }
+  let handleChange = e => {
+    const file = e.target.files[0]
+    state = {
+      fileUrl: URL.createObjectURL(file),
+      file,
+      filename: file.name
+    }
+  }
+
+  let saveFile = () => {
+    Storage.put(state.filename,state.file)
+      .then(() => {
+        console.log('saved');
+        state = {fileUrl:'',file:'',filename:''}
+      })
+      .catch(err => {
+        console.log('error: ', err)
+      })
+  }
+
   return (
     <div className="container-fluid photo-section color-scheme-alt">
       <h3 className="section-heading">Photos</h3>
@@ -17,7 +40,9 @@ function Photos() {
           <>
             <button onClick={signOut}>Sign out</button>
             <div className="photos">
-
+              <input type='file' onChange={handleChange} />
+              <img src={state.fileUrl} />
+              <button onClick={saveFile}>Save File</button>
             </div>
           </>
         )}
