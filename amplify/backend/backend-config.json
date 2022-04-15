@@ -27,11 +27,5 @@
       }
     }
   },
-  "storage": {
-    "s38ef35c2c": {
-      "service": "S3",
-      "providerPlugin": "awscloudformation",
-      "dependsOn": []
-    }
-  }
+  "storage": {}
 }
